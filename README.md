@@ -23,63 +23,46 @@ To run Dynamo graphs in the cloud, it is necessary to have a basic understanding
 
 To run Dynamo graphs on your Revit model in Design Automation you need to reference *RDADHelper.dll* in your DB app. RDADHelper stands for *Revit Design Automation Dynamo Helper* and works as an intermediate layer between your DB app bundle and Dynamo. Refer to the files included in this implementation on the specifics.
 
-The APS activity for this implementation looks similar to the below:
-```json
-{
-    "commandLine": [
-        "$(engine.path)\\\\revitcoreconsole.exe /i \"$(args[rvtFile].path)\" /al \"$(appbundles[D4DA].path)\""
-    ],
-    "parameters": {
-        "rvtFile": {
-            "zip": false,
-            "ondemand": false,
-            "verb": "get",
-            "description": "Input Revit model",
-            "required": true
-        },
-        "input": {
-            "zip": true,
-            "ondemand": false,
-            "verb": "get",
-            "description": "Input Dynamo graph(s) and supporting files",
-            "required": true,
-            "localName": "input.zip"
-        },
-        "result": {
-            "zip": true,
-            "ondemand": false,
-            "verb": "put",
-            "description": "graph result",
-            "required": true,
-            "localName": "result"
-        }
-    },
-    "engine": "Autodesk.Revit+2024",
-    "appbundles": [
-        "{{dasNickName}}.D4DA+default"
-    ],
-    "description": "Run dynamo in the cloud"
-}
+#### Setting Environment Variables:
+
+```bash
+set APS_CLIENT_ID=<your client id>
+set APS_CLIENT_SECRET=<your client secret>
 ```
 
-The APS work item for this implementation looks similar to the below:
-```json
-{
-  "activityId": "{{dasNickName}}.D4DA_Activity+default",
-  "arguments": {
-    "rvtFile": {
-      "url": "{{ossDownloadURLForRvt}}"
-    },
-    "input": {
-      "url": "{{ossDownloadURLForInput}}"
-    },
-    "result": {
-      "verb": "put",
-      "url": "{{ossUploadURL}}"
-    }
-  }
-}
+#### The APS work item for this implementation looks similar to the below:
+
+```csharp
+string bundlePath =
+            @"<Bundle Path Zip(D4DA.bundle.zip)>";
+        string inputZipPath =
+            @"<Input Zip Path(Input.Zip)>";
+        DesignAutomateConfiguration configuration = new DesignAutomateConfiguration()
+        {
+            AppName = "TestDynamoRevitDA",
+            NickName = "<nick name created in design automation app>",
+            Version = DA_DynamoRevit.Version.v2024,
+            Engine = Engine.Revit,
+            Alias = Alias.DEV,
+            ActivityName = "TestDynamoRevitDAActivity",
+            ActivityDescription = "TestDynamo Revit Design Automation",
+            PackageZipPath = bundlePath,
+            BundleDescription = "TestDynamo Revit Design Automation",
+            ResultFileName = "result",
+            ResultFileExt = ".zip"
+        };
+        DynamoRevitDesignAutomate dynamoRevitDesignAutomate = new DynamoRevitDesignAutomate(configuration);
+        string forgeToken2Leg =
+            await Authentication.Get2LeggedToken(configuration.ClientId, configuration.ClientSecret);
+        Scope[] scope = new Scope[]
+            { Scope.DataRead, Scope.DataWrite, Scope.DataCreate, Scope.BucketRead, Scope.BucketCreate, Scope.CodeAll };
+        Status executeJob =
+            await dynamoRevitDesignAutomate.ExecuteJob(forgeToken2Leg, projectId, versionId,
+                inputZipPath);
+        Console.WriteLine(executeJob);
 ```
+
+Tip : To know more about example, please check [DADynamoRevitTest](./src/DA_UnitTest/DADynamoRevitTest.cs)
 
 The activity expects a signed download link to a Revit file (either uploaded to the OSS storage or from Bim360), that will be downloaded and opened in Revit by Design Automation. The second input is a signed download link to a zip that will include the dynamo graph(s) and all of the supporting files.
 
@@ -196,9 +179,20 @@ After running a graph, the `OnGraphResultReady` action will return an object of 
 
 ## Sample Inputs
 
-- ### [Get Data](https://github.com/tothom/RDADynamo-example-implementation/tree/main/samples/getting-data-from-revit)
+- [Run Graph To Export Data By Category (Door-Windows)](https://github.com/tothom/RDADynamo-example-implementation/tree/main/samples/getting-data-from-revit)
 
-## Current Limitations
+Output : 
+
+![](./docs/da_result.png)
+
+Doors : 
+
+|ID    |Area              |Category|Comments|Design Option|Edited by|Export to IFC|Export to IFC As|Family   |Family and Type|Family Name|Finish|Frame Material|Frame Type|Head Height|Host Id     |IFC Predefined Type|IfcGUID               |Image|Level  |Mark|Phase Created     |Phase Demolished|Sill Height|Type     |Type Id  |Type Name|Volume            |Workset|
+|------|------------------|--------|--------|-------------|---------|-------------|----------------|---------|---------------|-----------|------|--------------|----------|-----------|------------|-------------------|----------------------|-----|-------|----|------------------|----------------|-----------|---------|---------|---------|------------------|-------|
+|291310|3.1935419999999777|Doors   |        |-1           |         |0            |                |36" x 84"|36" x 84"      |           |      |              |          |2133.6     |Generic - 6"|                   |1Ri6dAvFvEOxun_An4x7pU|     |Level 1|1   |Project Completion|None            |0.0        |36" x 84"|36" x 84"|         |0.1197566637119994|0      |
+
+
+## Current _[Limitations]()_
 Please refer to the [list of limitations](https://github.com/tothom/RDADynamo-example-implementation/blob/main/docs/UnsupportedNodes.md) for more info and suggested workaround.
 
 ## Building RDA Dynamo
@@ -206,4 +200,4 @@ Please refer to the [following steps](https://github.com/tothom/RDADynamo-exampl
 
 ## Copyright
 
-This source 
+This source upgraded from [RDADynamo-example-implementation](https://github.com/tothom/RDADynamo-example-implementation)
