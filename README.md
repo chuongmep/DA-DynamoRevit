@@ -1,5 +1,5 @@
 
-![Revit API](https://img.shields.io/badge/Revit%20API%202024-blue.svg) ![Platform](https://img.shields.io/badge/platform-Windows-lightgray.svg) [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+![Revit API](https://img.shields.io/badge/Revit%20API%202024-blue.svg) ![Revit API](https://img.shields.io/badge/Cpython3-blue.svg) ![Platform](https://img.shields.io/badge/platform-Windows-lightgray.svg) [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 ![ReSharper](https://img.shields.io/badge/ReSharper-2023-yellow) ![Rider](https://img.shields.io/badge/Rider-2023-yellow) ![Visual Studio 2022](https://img.shields.io/badge/Visual_Studio_2022-yellow) ![.NET Framework](https://img.shields.io/badge/.NET_6.0-yellow)
 
@@ -62,7 +62,7 @@ string bundlePath =
         Console.WriteLine(executeJob);
 ```
 
-Tip : To know more about example, please check [DADynamoRevitTest](./src/DA_UnitTest/DADynamoRevitTest.cs)
+🔦 Tip: To know more about example, please check [DADynamoRevitTest](./src/DA_UnitTest/DADynamoRevitTest.cs). In case you need update ACC mode cloud data, please follow step at [Design Automation API Supports Revit Cloud Model](https://aps.autodesk.com/blog/design-automation-api-supports-revit-cloud-model)
 
 The activity expects a signed download link to a Revit file (either uploaded to the OSS storage or from Bim360), that will be downloaded and opened in Revit by Design Automation. The second input is a signed download link to a zip that will include the dynamo graph(s) and all of the supporting files.
 
@@ -125,7 +125,7 @@ The input.json in this case could look something like this:
 ]
 ```
 
-Based on that, your input.zip file would need to have a folder structure similar to this:
+Based on that, your [input.zip](./samples/getting-data-from-revit/input.zip) file would need to have a folder structure similar to this:
 
 ### input.zip:
 - input.json
@@ -193,8 +193,8 @@ Doors :
 
 - Recheck data model example online : https://forge.chuongmep.com/
 - Check Item Report Example : [Report.txt](https://gist.github.com/chuongmep/bb1175f6d16480b0f9c6396cb3e946fa)
-## Current _[Limitations]()_
-Please refer to the [list of limitations](https://github.com/tothom/RDADynamo-example-implementation/blob/main/docs/UnsupportedNodes.md) for more info and suggested workaround.
+## Current Limitations
+Please refer to the [list of limitations](./docs/UnsupportedNodes.md) for more info and suggested workaround.
 
 ## Building RDA Dynamo
 Please refer to the [following steps](https://github.com/tothom/RDADynamo-example-implementation/blob/main/docs/Develop.md) to build and develop RDADynamo further.
