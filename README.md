@@ -33,33 +33,33 @@ set APS_CLIENT_SECRET=<your client secret>
 #### The APS work item for this implementation looks similar to the below:
 
 ```csharp
-string bundlePath =
-            @"<Bundle Path Zip(D4DA.bundle.zip)>";
-        string inputZipPath =
-            @"<Input Zip Path(Input.Zip)>";
-        DesignAutomateConfiguration configuration = new DesignAutomateConfiguration()
-        {
-            AppName = "TestDynamoRevitDA",
-            NickName = "<nick name created in design automation app>",
-            Version = DA_DynamoRevit.Version.v2024,
-            Engine = Engine.Revit,
-            Alias = Alias.DEV,
-            ActivityName = "TestDynamoRevitDAActivity",
-            ActivityDescription = "TestDynamo Revit Design Automation",
-            PackageZipPath = bundlePath,
-            BundleDescription = "TestDynamo Revit Design Automation",
-            ResultFileName = "result",
-            ResultFileExt = ".zip"
-        };
-        DynamoRevitDesignAutomate dynamoRevitDesignAutomate = new DynamoRevitDesignAutomate(configuration);
-        string forgeToken2Leg =
-            await Authentication.Get2LeggedToken(configuration.ClientId, configuration.ClientSecret);
-        Scope[] scope = new Scope[]
-            { Scope.DataRead, Scope.DataWrite, Scope.DataCreate, Scope.BucketRead, Scope.BucketCreate, Scope.CodeAll };
-        Status executeJob =
-            await dynamoRevitDesignAutomate.ExecuteJob(forgeToken2Leg, projectId, versionId,
-                inputZipPath);
-        Console.WriteLine(executeJob);
+var projectId = "<Your ProjectId In ACC>";
+var versionId = "<Your VersionId In ACC>";
+string bundlePath = @"<Bundle Path Zip(D4DA.bundle.zip)>";
+string inputZipPath = @"<Input Zip Path(Input.Zip)>";
+DesignAutomateConfiguration configuration = new DesignAutomateConfiguration()
+{
+    AppName = "TestDynamoRevitDA",
+    NickName = "<nick name created in design automation app>",
+    Version = DA_DynamoRevit.Version.v2024,
+    Engine = Engine.Revit,
+    Alias = Alias.DEV,
+    ActivityName = "TestDynamoRevitDAActivity",
+    ActivityDescription = "TestDynamo Revit Design Automation",
+    PackageZipPath = bundlePath,
+    BundleDescription = "TestDynamo Revit Design Automation",
+    ResultFileName = "result",
+    ResultFileExt = ".zip"
+};
+DynamoRevitDesignAutomate dynamoRevitDesignAutomate = new DynamoRevitDesignAutomate(configuration);
+string forgeToken2Leg =
+    await Authentication.Get2LeggedToken(configuration.ClientId, configuration.ClientSecret);
+Scope[] scope = new Scope[]
+    { Scope.DataRead, Scope.DataWrite, Scope.DataCreate, Scope.BucketRead, Scope.BucketCreate, Scope.CodeAll };
+Status executeJob =
+    await dynamoRevitDesignAutomate.ExecuteJob(forgeToken2Leg, projectId, versionId,
+        inputZipPath);
+Console.WriteLine(executeJob);
 ```
 
 🔦 Tip: To know more about example, please check [DADynamoRevitTest](./src/DA_UnitTest/DADynamoRevitTest.cs). In case you need update ACC mode cloud data, please follow step at [Design Automation API Supports Revit Cloud Model](https://aps.autodesk.com/blog/design-automation-api-supports-revit-cloud-model)
