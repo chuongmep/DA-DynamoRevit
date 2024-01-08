@@ -12,6 +12,7 @@ alt="follow on Twitter"></a>
 
 Make Dynamo Revit Possible Execute Task Design Automation for Revit In Autodesk Construction Cloud (ACC)
 
+![](docs/da_dynamo-revit.png)
 
 ### Prerequisites
 
