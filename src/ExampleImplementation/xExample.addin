@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<RevitAddIns>
+<AddIn Type="DBApplication">
+<Name>RDAD Test</Name>
+<Assembly>E:\Github\RDADynamo-example-implementation\src\ExampleImplementation\bin\Debug\ExampleImplementation.dll</Assembly>
+<AddInId>79A6EB3A-D754-4C87-8CFE-DAA008FAFDBC</AddInId>
+<FullClassName>ExampleImplementation.Example</FullClassName>
+<VendorId>ADSK</VendorId>
+<VendorDescription>Dynamo</VendorDescription>
+</AddIn>
+</RevitAddIns>
