@@ -20,9 +20,10 @@ public class DaDynamoRevitTest
     public async Task DynamoDesignAutomationTest(string projectId, string versionId)
     {
         string bundlePath =
-            @"C:\Users\vho2\Downloads\aps-dynamo-design-automation-nodejs\aps-dynamo-design-automation-nodejs-master\bundles\D4DA.bundle.zip";
+            @"../../../../../samples/getting-data-from-revit/D4DA.bundle.zip";
         string inputZipPath =
-            @"C:\Users\vho2\Downloads\aps-dynamo-design-automation-nodejs\aps-dynamo-design-automation-nodejs-master\sample files\getting-data-from-revit\input.zip";
+            @"../../../../../samples/getting-data-from-revit/input.zip";
+        Console.WriteLine(bundlePath);
         DesignAutomateConfiguration configuration = new DesignAutomateConfiguration()
         {
             AppName = "TestDynamoRevitDA",
