@@ -8,6 +8,8 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SolutionItems", "SolutionItems", "{90B598E9-7BDD-45FE-A084-C28AB2848FAF}"
 	ProjectSection(SolutionItems) = preProject
 		..\README.md = ..\README.md
+		..\CODE_OF_CONDUCT.md = ..\CODE_OF_CONDUCT.md
+		..\License.md = ..\License.md
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DA-DynamoRevit", "DA-DynamoRevit\DA-DynamoRevit.csproj", "{CD55801B-C479-4E3C-8E68-A3353C13EA91}"
