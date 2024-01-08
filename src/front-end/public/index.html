@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>APS - Design Automation</title>
+    <meta charset="utf-8"/>
+    <link rel="shortcut icon" href="https://cdn.autodesk.io/favicon.ico">
+    <!-- Common packages: jQuery, Bootstrap -->
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/css/bootstrap.min.css">
+    <!-- Socket.io The io method is bound to the global scope in the standalone build-->
+    <script src="/socket.io/socket.io.js"></script>
+    <!-- Files for this project -->
+    <script src="/js/ApsDesignAutomation.js"></script>
+</head>
+
+<body style="height: 100%;">
+<!-- Fixed navbar by Bootstrap: https://getbootstrap.com/examples/navbar-fixed-top/ -->
+<nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container-fluid">
+        <ul class="nav navbar-nav left">
+            <li>
+                <a href="http://tutorials.autodesk.io" target="_blank">
+                    <img alt="Autodesk APS" src="https://cdn.autodesk.io/logo/black/stacked.png" height="20">
+                </a>
+            </li>
+        </ul>
+        <div style="float: right; margin-top: 15px; cursor: pointer;">
+                <span style="padding-right: 5px;" data-toggle="modal" data-target="#toolsModal"
+                      title="Utility">
+                    <span class="glyphicon glyphicon-cog glyphiconTop mlink"> </span> Tools
+                </span>
+        </div>
+    </div>
+</nav>
+<!-- End of navbar -->
+<div class="container-fluid" style="margin-top: 70px;">
+    <div class="row">
+        <div class="col-sm-2">
+            <div class="form-group">
+                <label for="inputRevitFile">Input Revit 2024 file</label>
+                <input type="file" class="form-control-file" id="inputRevitFile">
+            </div>
+            <div class="form-group">
+                <label for="inputDynamoFile">Input Dynamo file</label>
+                <input type="file" class="form-control-file" id="inputDynamoFile">
+            </div>
+            <div class="form-group">
+                <label for="activity">Existing activities</label>
+                <select class="form-control" id="activity"> </select>
+            </div>
+            <center>
+                <button class="btn btn-primary" id="startWorkitem">Start workitem</button>
+            </center>
+            <br/>
+        </div>
+        <div class="col-sm-10">
+            <pre id="outputlog" style="height: calc(100vh - 120px);; overflow-y: scroll;"></pre>
+        </div>
+    </div>
+</div>
+<!-- Tools modal -->
+<div class="modal fade" id="toolsModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Cancel"><span
+                        aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">Clear account</h4>
+            </div>
+            <div class="modal-body">
+                <div class="alert alert-warning">
+                    <center>WARNING<br/>By clicking "Clear account, you will reset the nickname to clientID <br/>and
+                        remove all associated resources (Activites and AppBundles)
+                    </center>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-danger" id="clearAccount">Clear account</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+
+</html>
