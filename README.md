@@ -185,12 +185,6 @@ Output :
 
 ![](./docs/da_result.png)
 
-Doors : 
-
-|ID    |Area              |Category|Comments|Design Option|Edited by|Export to IFC|Export to IFC As|Family   |Family and Type|Family Name|Finish|Frame Material|Frame Type|Head Height|Host Id     |IFC Predefined Type|IfcGUID               |Image|Level  |Mark|Phase Created     |Phase Demolished|Sill Height|Type     |Type Id  |Type Name|Volume            |Workset|
-|------|------------------|--------|--------|-------------|---------|-------------|----------------|---------|---------------|-----------|------|--------------|----------|-----------|------------|-------------------|----------------------|-----|-------|----|------------------|----------------|-----------|---------|---------|---------|------------------|-------|
-|291310|3.1935419999999777|Doors   |        |-1           |         |0            |                |36" x 84"|36" x 84"      |           |      |              |          |2133.6     |Generic - 6"|                   |1Ri6dAvFvEOxun_An4x7pU|     |Level 1|1   |Project Completion|None            |0.0        |36" x 84"|36" x 84"|         |0.1197566637119994|0      |
-
 - Recheck data model example online : https://forge.chuongmep.com/
 - Check Item Report Example : [Report.txt](https://gist.github.com/chuongmep/bb1175f6d16480b0f9c6396cb3e946fa)
 ## Current Limitations
@@ -199,6 +193,6 @@ Please refer to the [list of limitations](./docs/UnsupportedNodes.md) for more i
 ## Building RDA Dynamo
 Please refer to the [following steps](https://github.com/tothom/RDADynamo-example-implementation/blob/main/docs/Develop.md) to build and develop RDADynamo further.
 
-## Copyright
+## References
 
 This source upgraded from [RDADynamo-example-implementation](https://github.com/tothom/RDADynamo-example-implementation)
