@@ -21,7 +21,7 @@ To run Dynamo graphs in the cloud, it is necessary to have a basic understanding
 
 ### Making your own Revit Design Automation Dynamo Implementation
 
-To run Dynamo graphs on your Revit model in Design Automation you need to reference *RDADHelper.dll* in your DB app. RDADHelper stands for *Revit Design Automation Dynamo Helper* and works as an intermediate layer between your DB app bundle and Dynamo. Refer to the files included in this implementation on the specifics.
+To run Dynamo graphs on your Revit model in ACC use Design Automation, you need to reference *RDADHelper.dll* in your DB app. **RDADHelper** stands for *Revit Design Automation Dynamo Helper* and works as an intermediate layer between your DB app bundle and Dynamo. Refer to the files included in this implementation on the specifics.
 
 #### Setting Environment Variables:
 
