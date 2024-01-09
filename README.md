@@ -1,4 +1,6 @@
 
+[![Design Automation](https://img.shields.io/badge/Design%20Automation-v3-brightgreen)](https://forge.autodesk.com/en/docs/design-automation/v3)
+[![Autodesk Construction Cloud API](https://img.shields.io/badge/ACC-v1-brightgreen.svg)](https://forge.autodesk.com/en/docs/acc/v1/overview/)
 ![Revit API](https://img.shields.io/badge/Revit%20API%202024-blue.svg) ![Revit API](https://img.shields.io/badge/Cpython3-blue.svg) ![Platform](https://img.shields.io/badge/platform-Windows-lightgray.svg) [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 ![ReSharper](https://img.shields.io/badge/ReSharper-2023-yellow) ![Rider](https://img.shields.io/badge/Rider-2023-yellow) ![Visual Studio 2022](https://img.shields.io/badge/Visual_Studio_2022-yellow) ![.NET Framework](https://img.shields.io/badge/.NET_6.0-yellow)
